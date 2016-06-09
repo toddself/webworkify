@@ -55,7 +55,7 @@ contain output from the worker:
 var work = require('webworkify')
 ```
 
-## var w = work(require(modulePath))
+## var w = work(require(modulePath), [{options}])
 
 Return a new
 [web worker](https://developer.mozilla.org/en-US/docs/Web/API/Worker)
@@ -69,6 +69,9 @@ the main thread too so don't put any computationally intensive code in that
 part. It is necessary for the main code to `require()` the worker code to fetch
 the module reference and load `modulePath`'s dependency graph into the bundle
 output.
+
+You can ask for a SharedWorker by passing `sharedWorker: true` in the second,
+optional options hash argument.
 
 # install
 
